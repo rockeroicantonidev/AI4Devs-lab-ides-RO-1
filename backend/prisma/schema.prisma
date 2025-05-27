@@ -18,3 +18,18 @@ model User {
   email String  @unique
   name  String?
 }
+
+model Candidate {
+  id             Int      @id @default(autoincrement())
+  first_name     String
+  last_name      String
+  email          String   @unique
+  phone          String
+  address        String
+  education      String?
+  work_experience String?
+  resume_file    Bytes?
+  resume_file_type String? @db.VarChar(5)
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
+}
