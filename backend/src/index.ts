@@ -2,12 +2,17 @@ import { Request, Response, NextFunction } from 'express';
 import express from 'express';
 import { PrismaClient } from '@prisma/client';
 import dotenv from 'dotenv';
+import candidateRoutes from './routes/candidateRoutes';
+
 
 dotenv.config();
 const prisma = new PrismaClient();
 
 export const app = express();
 export default prisma;
+
+app.use(express.json());
+app.use('/api', candidateRoutes);
 
 const port = 3010;
 
