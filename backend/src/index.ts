@@ -2,14 +2,22 @@ import { Request, Response, NextFunction } from 'express';
 import express from 'express';
 import { PrismaClient } from '@prisma/client';
 import dotenv from 'dotenv';
+import cors from 'cors'; // Añadir esta línea
 import candidateRoutes from './routes/candidateRoutes';
-
 
 dotenv.config();
 const prisma = new PrismaClient();
 
 export const app = express();
 export default prisma;
+
+// Configurar CORS
+app.use(cors({
+  origin: 'http://localhost:3000', // URL del frontend
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
 
 app.use(express.json());
 app.use('/api', candidateRoutes);

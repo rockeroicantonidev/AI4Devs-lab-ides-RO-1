@@ -1,25 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Container, Typography, Box } from '@mui/material';
+import CandidateForm from './components/CandidateForm';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container maxWidth="lg">
+      <Box sx={{ my: 4 }}>
+        <Typography variant="h4" component="h1" gutterBottom>
+          Sistema de Gestión de Candidatos
+        </Typography>
+        <CandidateForm />
+      </Box>
+    </Container>
   );
 }
 
